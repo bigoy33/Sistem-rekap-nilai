@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Rekap Nilai Siswa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Rekap Nilai Siswa</h1>
+
+        <table id="rekap-nilai">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>ID Siswa</th>
+                    <th>Nama Siswa</th>
+                    <th>Mata Pelajaran</th>
+                    <th>Nilai</th>
+                    <th>Status Kehadiran</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="data-siswa">
+                <!-- Data Siswa Akan Ditampilkan Di Sini -->
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <button onclick="tambahData()">Tambah Data</button>
+            <button onclick="eksporCSV()">Ekspor ke CSV</button>
+            <input type="file" id="importFile" onchange="imporCSV(event)" accept=".csv">
+        </div>
+
+        <!-- Modal untuk Edit Data Siswa -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="tutupModal()">&times;</span>
+                <h2>Edit Data Siswa</h2>
+                <form id="editForm">
+                    <label for="editId">ID Siswa:</label>
+                    <input type="text" id="editId" name="editId" disabled><br>
+                    <label for="editNama">Nama Siswa:</label>
+                    <input type="text" id="editNama" name="editNama"><br>
+                    <label for="editMataPelajaran">Mata Pelajaran:</label>
+                    <input type="text" id="editMataPelajaran" name="editMataPelajaran"><br>
+                    <label for="editNilai">Nilai:</label>
+                    <input type="text" id="editNilai" name="editNilai"><br>
+                    <label for="editStatus">Status Kehadiran:</label>
+                    <input type="text" id="editStatus" name="editStatus"><br>
+                    <button type="button" onclick="simpanEdit()">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
